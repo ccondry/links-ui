@@ -13,11 +13,11 @@
       />
     </b-modal>
 
-    <span id="main-content" v-if="sessionInfo && sessionInfo.demo">
-      <!-- content iframe -->
+    <!-- <span id="main-content" v-if="sessionInfo && sessionInfo.demo"> -->
+      <!-- content frame -->
+      <!-- This page will show demo links for {{ title }} -->
       <!-- <iframe :src="iframe" class="demo-iframe"></iframe> -->
-      dCloud demo links for {{ sessionInfo.demo.toUpperCase() }} {{ sessionInfo.version }}
-    </span>
+    <!-- </span> -->
   </div>
 </template>
 
@@ -117,6 +117,15 @@ export default {
       this.setDatacenter(data.datacenter)
       // get session info now
       this.getSessionInfo(false)
+    },
+    updateContent (val) {
+      // update query string with the data entered into the session modal
+      setQueryStringParameter('session', this.sessionId)
+      setQueryStringParameter('datacenter', this.datacenter)
+      // change the HTML page title
+      document.title = this.title
+      // redirect
+      window.location = this.iframe
     }
   },
 
@@ -125,9 +134,8 @@ export default {
       console.log('sessionInfo changed')
       // check if we have actual data
       if (val.demo) {
-        // update query string with the data entered into the session modal
-        setQueryStringParameter('session', this.sessionId)
-        setQueryStringParameter('datacenter', this.datacenter)
+        // update page content now
+        this.updateContent(val)
       }
     },
     sessionInfoError (val) {
@@ -187,8 +195,8 @@ html {
   overflow-x: hidden;
 }
 ::-webkit-scrollbar {
-    width: 0px;  /* remove scrollbar space */
-    background: transparent;  /* optional: just make scrollbar invisible */
+  width: 0px;  /* remove scrollbar space */
+  background: transparent;  /* optional: just make scrollbar invisible */
 }
 body {
   height: 100%;
