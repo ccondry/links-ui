@@ -78,6 +78,31 @@ export default {
       'sessionId',
       'sessionInfoError'
     ]),
+    title () {
+      if (this.sessionInfo && this.sessionInfo.demo) {
+        // session info is valid
+        // build HTML page title
+        const demo = this.sessionInfo.demo.toUpperCase()
+        const version = this.sessionInfo.version
+        const instant = this.isInstantDemo ? ' Instant' : ''
+        return `dCloud ${demo} ${version}${instant} Demo`
+      } else {
+        // no session info yet
+        return 'dCloud'
+      }
+    },
+    iframe () {
+      if (this.sessionInfo && this.sessionInfo.demo) {
+        const demo = this.sessionInfo.demo.toLowerCase()
+        const version = this.sessionInfo.version
+        const instant = this.isInstantDemo ? '-instant' : ''
+        // iframe source - this points the main content ifame to different
+        // html files for different demos. example UCCX 12.0v2 or PCCE 11.6v3
+        return `https://mm-static.cxdemo.net/${demo}/${version}${instant}.html`
+      } else {
+        return ''
+      }
+    }
   },
 
   methods: {
