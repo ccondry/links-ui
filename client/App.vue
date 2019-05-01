@@ -106,10 +106,12 @@ export default {
   watch: {
     sessionInfo (val) {
       console.log('sessionInfo changed')
-      // update query string with the data entered into the session modal
-      setQueryStringParameter('session', this.sessionId)
-      setQueryStringParameter('datacenter', this.datacenter)
-      setQueryStringParameter('userId', this.userId)
+      // check if we have actual data
+      if (val.demo) {
+        // update query string with the data entered into the session modal
+        setQueryStringParameter('session', this.sessionId)
+        setQueryStringParameter('datacenter', this.datacenter)
+      }
     },
     sessionInfoError (val) {
       console.log('sessionInfoError watcher:', val)
