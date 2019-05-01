@@ -45,8 +45,7 @@ export default {
   data () {
     return {
       qs: {},
-      showSessionInfoModal: false,
-      iframe: ''
+      showSessionInfoModal: false
     }
   },
 
