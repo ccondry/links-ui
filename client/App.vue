@@ -13,9 +13,10 @@
       />
     </b-modal>
 
-    <span id="main-content" v-if="sessionInfo">
+    <span id="main-content" v-if="sessionInfo && sessionInfo.demo">
       <!-- content iframe -->
-      <iframe :src="iframe" class="demo-iframe"></iframe>
+      <!-- <iframe :src="iframe" class="demo-iframe"></iframe> -->
+      dCloud demo links for {{ sessionInfo.demo.toUpperCase() }} {{ sessionInfo.version }}
     </span>
   </div>
 </template>
