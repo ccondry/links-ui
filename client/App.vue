@@ -72,19 +72,12 @@ export default {
   computed: {
     ...mapGetters([
       'loading',
-      'isUccx',
-      'isPcce',
-      'isCjp',
-      'isRcdn',
-      'isUpstream',
       'sessionInfo',
       'isInstantDemo',
-      'userId',
       'datacenter',
       'sessionId',
-      'sessionInfoError',
-      'demoConfig'
-    ])
+      'sessionInfoError'
+    ]),
   },
 
   methods: {
