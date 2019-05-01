@@ -73,7 +73,7 @@ const actions = {
       console.log('loading dcloud session info...')
       const host1 = 'https://mm.cxdemo.net'
       const host2 = 'https://mm-dev.cxdemo.net'
-      const path = '/datacenters/' + getters.datacenter + '/sessions/' + getters.sessionId
+      const path = '/api/v1/datacenters/' + getters.datacenter + '/sessions/' + getters.sessionId
       let response
       try {
         response = await load(host1 + path)
