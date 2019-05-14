@@ -11,6 +11,7 @@ module.exports = {
     // If you want to support IE < 11, should add `babel-polyfill` to vendor.
     // e.g. ['babel-polyfill', 'vue', 'vue-router', 'vuex']
     vendor: [
+      'babel-polyfill'
       'vue',
       'vue-router',
       'vuex',
